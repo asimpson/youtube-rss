@@ -1,0 +1,23 @@
+{
+  "name": "youtube-rss",
+  "version": "1.0.0",
+  "description": "An express app that takes in channel IDs and generates an RSS feed for each ID.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "keywords": [
+    "youtube",
+    "rss"
+  ],
+  "author": "Adam Simpson",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "express": "^4.12.4",
+    "lodash": "^3.8.0",
+    "morgan": "^1.5.3",
+    "youtube-api": "^0.3.2"
+  }
+}
