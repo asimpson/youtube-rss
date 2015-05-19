@@ -4,6 +4,7 @@ var express = require('express');
 var app = express();
 var cons = require('consolidate');
 var when = require('when');
+var sequence = require('when/sequence');
 var _ = require('lodash/collection/forEach');
 
 app.get('/', function(req, res) {
@@ -53,33 +54,36 @@ function getChannelVideos(channelId) {
 
 app.get('/:channelId', function(req, res) {
 
-  var rssObject = [];
-  var rssTitle = '';
-
   Youtube.authenticate({
     type: "key", 
     key: "***REMOVED***"
   });
 
-  getChannelTitle(req.params.channelId).then(function(response) {
-    rssTitle = response;
-  });
+  var rssObject = [];
+  var rssTitle = '';
+  var todayDate = new Date().toUTCString();
+  var dataObject = sequence([getChannelTitle, getChannelVideos], req.params.channelId);
 
-  getChannelVideos(req.params.channelId).then(function(response) {
-    _(response.items, function(n, key) {
+  dataObject.then(function(response){
+    rssTitle = response[0]
+
+    _(response[1].items, function(n, key) {
+      var date = new Date(n.snippet.publishedAt).toUTCString();
       var rssItem = {
         description: n.snippet.description,
         title: n.snippet.title,
-        thumb: n.snippet.thumbnails.high.url,
+        date: date,
         videoId: n.id.videoId
       };
       rssObject.push(rssItem);
     });
-  }).then(function(response) {
+  })
+  .then(function(response) {
     cons.handlebars('rss_template.hbs', { 
+      date: todayDate,
       channel: req.params.channelId,
-      rss:rssObject,
-      title:rssTitle
+      rss: rssObject,
+      title: rssTitle
     }, function(err, html){
       if (err) throw err;
       res.set('Content-Type', 'text/xml');
