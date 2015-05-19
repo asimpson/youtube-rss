@@ -1,0 +1,42 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom"> 
+  <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id={{channel}}"/>
+  <id>yt:channel:{{channel}}</id>
+  <yt:channelId>{{channel}}</yt:channelId>
+  <title>{{title}}</title>
+  <link rel="alternate" href="http://www.youtube.com/channel/{{channel}}"/>
+  <author>
+  <name>{{title}}</name>
+  <uri>
+    http://www.youtube.com/channel/{{channel}}
+  </uri>
+  </author>
+  <published>2011-05-12T11:25:19+00:00</published>
+
+  {{#each rss}}
+    <entry>
+      <id>yt:video:{{videoId}}</id>
+      <yt:videoId>{{videoId}}</yt:videoId>
+      <yt:channelId>{{../channel}}</yt:channelId>
+      <title>{{title}}</title>
+      <link rel="alternate" href="http://www.youtube.com/watch?v={{videoId}}"/>
+      <author>
+        <name>{{../title}}</name>
+        <uri>
+        http://www.youtube.com/channel/{{../channel}}
+        </uri>
+      </author>
+      <published>2015-05-16T12:33:07+00:00</published>
+      <updated>2015-05-18T17:35:31+00:00</updated>
+      <media:group>
+        <media:title>{{title}}</media:title>
+        <media:content url="https://www.youtube.com/v/{{videoId}}?version=3"/>
+        <media:thumbnail url="{{thumb}}" />
+        <media:description>
+          {{description}}
+        </media:description>
+      </media:group>
+    </entry>
+  {{/each}}
+  </feed>
+</rss>
