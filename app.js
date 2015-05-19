@@ -69,9 +69,10 @@ app.get('/:channelId', function(req, res) {
 
     _(response[1].items, function(n, key) {
       var date = new Date(n.snippet.publishedAt).toUTCString();
+      var title = n.snippet.title.replace('&', '&amp;');
       var rssItem = {
         description: n.snippet.description,
-        title: n.snippet.title,
+        title: title,
         date: date,
         videoId: n.id.videoId
       };
