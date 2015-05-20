@@ -6,10 +6,7 @@ var cons = require('consolidate');
 var when = require('when');
 var sequence = require('when/sequence');
 var _ = require('lodash/collection/forEach');
-
-app.get('/', function(req, res) {
-  res.send("Append the channel ID to the URL to generate the RSS feed");
-});
+var routes = require('./components/routes.js');
 
 app.get('/favicon*', function(req, res) {
   res.sendStatus(404);
@@ -80,7 +77,7 @@ app.get('/:channelId', function(req, res) {
     });
   })
   .then(function(response) {
-    cons.handlebars('rss_template.hbs', { 
+    cons.handlebars('templates/rss_template.hbs', { 
       date: todayDate,
       channel: req.params.channelId,
       rss: rssObject,
@@ -92,6 +89,8 @@ app.get('/:channelId', function(req, res) {
     });
   });
 });
+
+app.use(routes());
 
 app.use(logger("dev"));
 
