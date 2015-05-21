@@ -8,6 +8,8 @@ var sequence = require('when/sequence');
 var _ = require('lodash/collection/forEach');
 var routes = require('./components/routes.js');
 
+app.use('/public', express.static(__dirname + '/public'));
+
 app.get('/favicon*', function(req, res) {
   res.sendStatus(404);
 });

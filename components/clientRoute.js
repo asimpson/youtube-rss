@@ -3,6 +3,7 @@ var Router = require('react-router');
 var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
 var routeObj = require('./router-obj.js');
+var styles = require('../scss/manifest.scss');
 
 clientRoute = function() {
   return Router.run(routeObj, Router.HistoryLocation, function (Handler, state) {
