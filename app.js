@@ -12,6 +12,23 @@ app.get('/favicon*', function(req, res) {
   res.sendStatus(404);
 });
 
+function getUsernameForChannel(username) {
+  return new Promise(function(resolve, reject) {
+    Youtube.channels.list({
+      "part": "id",
+      "forUsername": username,
+      "maxResults": 1
+    }, function(err, data) {
+      if (err) {
+        reject(err);
+      }
+      if (data) {
+        resolve(data.items.id);
+      }
+    });
+  });
+}
+
 function getChannelTitle(channelId) {
   return new Promise(function(resolve, reject) {
     Youtube.search.list({
