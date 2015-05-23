@@ -13,8 +13,7 @@ Home = React.createClass({displayName: "Home",
   },
   render: function () {
     return (
-      React.createElement("form", {action: '/feed', 
-        method: 'post',
+      React.createElement("form", {action: '/test', 
         className: 'form-wrapper'}, 
         React.createElement("label", { className: 'channel-submit' }, 
           "Enter a Youtube channel name or ID"),
