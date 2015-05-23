@@ -11,6 +11,7 @@
   },
   "watch": [
     "app.js",
+    "components/*",
     "rss_template.hbs",
     "routes.js"
   ]

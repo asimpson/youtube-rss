@@ -1,35 +1,27 @@
 body {
-  background-color: white;
-}
+  background-color: white; }
 
 .form-wrapper {
   margin: 5em auto;
-  text-align: center;
-
-  input {
+  text-align: center; }
+  .form-wrapper input {
     display: block;
     border-radius: 0;
     border: none;
     padding: 1em;
     font-size: 1.125em;
-    margin: 1em auto;
-  }
-
-  label {
+    margin: 1em auto; }
+  .form-wrapper label {
     font-family: sans-serif;
-    color: #1b1b1b;
-  }
-
-  input[type='search'] {
+    color: #1b1b1b; }
+  .form-wrapper input[type='search'] {
     -webkit-appearance: none;
     border: 1px solid gray;
-    width: 90%;
-  }
-
-  input[type='submit'] {
+    width: 90%; }
+  .form-wrapper input[type='submit'] {
     text-transform: uppercase;
     background-color: red;
     color: white;
-    cursor: pointer;
-  }
-}
+    cursor: pointer; }
+
+/*# sourceMappingURL=manifest.css.map */

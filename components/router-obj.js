@@ -8,8 +8,8 @@ var FeedPreview = require('./FeedPreview.js');
 
 var routeObj = (
   React.createElement(Route, {name: "default", path: "/", handler: Default}, 
-    React.createElement(Route, {name: "feedPreview", path: "/feed/:id", handler: FeedPreview}),
-    React.createElement(DefaultRoute, {handler: Home})
+   React.createElement(Route, {name: "feedPreview", path: "/preview/:id", handler: FeedPreview}),
+   React.createElement(DefaultRoute, {handler: Home})
   )
 );
 

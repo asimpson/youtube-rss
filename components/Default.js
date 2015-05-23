@@ -11,7 +11,7 @@ Default = React.createClass({displayName: "Default",
   },
   render: function () {
     return (
-      React.createElement("div", {id: "app"}, 
+      React.createElement("div", null, 
         React.createElement(RouteHandler)
       )
     );

@@ -9,12 +9,24 @@ Home = React.createClass({displayName: "Home",
   },
   componentDidUpdate: function() {
   },
+  statics: {
+  },
   render: function () {
     return (
-      React.createElement("div", null, 
-        React.createElement("p", null, "Enter a channel name or ID in the box below:"), 
-        React.createElement("input", {className: 'channel-input'}), 
-        React.createElement("input", {type: 'submit', className: 'channel-submit'})
+      React.createElement("form", {action: '/feed', 
+        method: 'post',
+        className: 'form-wrapper'}, 
+        React.createElement("label", { className: 'channel-submit' }, 
+          "Enter a Youtube channel name or ID"),
+        React.createElement("input", {type: 'search', 
+          className: 'channel-input', 
+          name: 'search',
+          required: 'true',
+          placeholder: 'LastWeekTonight'}), 
+        React.createElement("input", {type: 'submit', 
+          className: 'channel-submit',
+          value: 'Search'
+        })
       )
     );
   }

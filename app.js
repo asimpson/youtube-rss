@@ -8,28 +8,16 @@ var sequence = require('when/sequence');
 var _ = require('lodash/collection/forEach');
 var routes = require('./components/routes.js');
 
+Youtube.authenticate({
+  type: "key", 
+  key: "***REMOVED***"
+});
+
 app.use('/public', express.static(__dirname + '/public'));
 
 app.get('/favicon*', function(req, res) {
   res.sendStatus(404);
 });
-
-function getUsernameForChannel(username) {
-  return new Promise(function(resolve, reject) {
-    Youtube.channels.list({
-      "part": "id",
-      "forUsername": username,
-      "maxResults": 1
-    }, function(err, data) {
-      if (err) {
-        reject(err);
-      }
-      if (data) {
-        resolve(data.items.id);
-      }
-    });
-  });
-}
 
 function getChannelTitle(channelId) {
   return new Promise(function(resolve, reject) {
@@ -68,13 +56,67 @@ function getChannelVideos(channelId) {
   });
 }
 
-app.get('/:channelId', function(req, res) {
-
-  Youtube.authenticate({
-    type: "key", 
-    key: "***REMOVED***"
+function getChannelID(query) {
+  return new Promise(function(resolve, reject) {
+    Youtube.channels.list({
+      "part": "id",
+      "forUsername": query,
+      "maxResults": 1
+    }, function(err, data) {
+      if (err) {
+        reject(err);
+      }
+      if (data) {
+        if (data.items.length < 1) {
+          Youtube.search.list({
+            "part": "snippet",
+            "channelId": query,
+            "order": "date",
+            "maxResults": 1,
+            "type": "video"
+          }, function(err, data) {
+            if (err) {
+              reject(err);
+            }
+            if (data) {
+              if (data.pageInfo.totalResults > 0) {
+                resolve(query);
+              } else {
+                reject(null);
+              }
+            }
+          });
+        } else {
+          resolve(data.items[0].id);
+        }
+      }
+    });
   });
+}
 
+app.post('/feed', function(req, res) {
+  var formData = "";
+  req.on("data", function(data) {
+    formData += data;
+  });
+  req.on("end", function(data) {
+    var query = formData.split('=')[1];
+    getChannelID(query).then(function(response) {
+      console.log(response);
+    }, function(error) {
+      if (error = null) {
+        console.log("ID not valid");
+      } else {
+        console.log("Username not valid");
+      }
+    });
+    //res.redirect('/feed/'+ID);
+  });
+});
+
+app.use(routes());
+
+app.get('/feed/:channelId', function(req, res) {
   var rssObject = [];
   var rssTitle = '';
   var todayDate = new Date().toUTCString();
@@ -109,7 +151,6 @@ app.get('/:channelId', function(req, res) {
   });
 });
 
-app.use(routes());
 
 app.use(logger("dev"));
 
