@@ -10,7 +10,7 @@ var FeedParser = require('./FeedParser.js');
 var routeObj = (
   React.createElement(Route, {name: "default", path: "/", handler: Default}, 
    React.createElement(Route, {name: "feedPreview", path: "/preview/:id", handler: FeedPreview}),
-   React.createElement(Route, {name: "test", handler: FeedParser}),
+   React.createElement(Route, {name: "parseFeed", handler: FeedParser}),
    React.createElement(DefaultRoute, {name: 'default-route', handler: Home})
   )
 );

@@ -56,64 +56,6 @@ function getChannelVideos(channelId) {
   });
 }
 
-function getChannelID(query) {
-  return new Promise(function(resolve, reject) {
-    Youtube.channels.list({
-      "part": "id",
-      "forUsername": query,
-      "maxResults": 1
-    }, function(err, data) {
-      if (err) {
-        reject(err);
-      }
-      if (data) {
-        if (data.items.length < 1) {
-          Youtube.search.list({
-            "part": "snippet",
-            "channelId": query,
-            "order": "date",
-            "maxResults": 1,
-            "type": "video"
-          }, function(err, data) {
-            if (err) {
-              reject(err);
-            }
-            if (data) {
-              if (data.pageInfo.totalResults > 0) {
-                resolve(query);
-              } else {
-                reject(null);
-              }
-            }
-          });
-        } else {
-          resolve(data.items[0].id);
-        }
-      }
-    });
-  });
-}
-
-app.post('/feed', function(req, res) {
-  var formData = "";
-  req.on("data", function(data) {
-    formData += data;
-  });
-  req.on("end", function(data) {
-    var query = formData.split('=')[1];
-    getChannelID(query).then(function(response) {
-      console.log(response);
-    }, function(error) {
-      if (error = null) {
-        console.log("ID not valid");
-      } else {
-        console.log("Username not valid");
-      }
-    });
-    //res.redirect('/feed/'+ID);
-  });
-});
-
 app.use(routes());
 
 app.get('/feed/:channelId', function(req, res) {
