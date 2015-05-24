@@ -7,6 +7,8 @@ var when = require('when');
 var sequence = require('when/sequence');
 var _ = require('lodash/collection/forEach');
 var routes = require('./components/routes.js');
+var getChannelTitle = require('./api/getChannelTitle.js');
+var getChannelVideos = require('./api/getChannelVideos.js');
 
 Youtube.authenticate({
   type: "key", 
@@ -18,45 +20,6 @@ app.use('/public', express.static(__dirname + '/public'));
 app.get('/favicon*', function(req, res) {
   res.sendStatus(404);
 });
-
-function getChannelTitle(channelId) {
-  return new Promise(function(resolve, reject) {
-    Youtube.search.list({
-      "part": "snippet",
-      "channelId": channelId,
-      "order": "date",
-      "type": "channel"
-    }, function(err, data) {
-      if (err) {
-        reject(err);
-      }
-      if (data) {
-        resolve(data.items[0].snippet.title);
-      }
-    });
-  });
-}
-
-function getChannelVideos(channelId) {
-  return new Promise(function(resolve, reject) {
-    Youtube.search.list({
-      "part": "snippet",
-      "channelId": channelId,
-      "order": "date",
-      "maxResults": 20,
-      "type": "video"
-    }, function(err, data) {
-      if (err) {
-        reject(err);
-      }
-      if (data) {
-        resolve(data);
-      }
-    });
-  });
-}
-
-app.use(routes());
 
 app.get('/feed/:channelId', function(req, res) {
   var rssObject = [];
@@ -93,6 +56,7 @@ app.get('/feed/:channelId', function(req, res) {
   });
 });
 
+app.use(routes());
 
 app.use(logger("dev"));
 

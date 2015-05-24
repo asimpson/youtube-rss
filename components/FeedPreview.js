@@ -4,7 +4,7 @@ var RouteHandler = Router.RouteHandler;
 
 FeedPreview = React.createClass({displayName: "feedPreview",
   render: function () {
-    console.log("hi");
+    console.log(this.props.params['id']);
     return (
       React.createElement("div", {className: 'preview'}, 'preview')
     );
