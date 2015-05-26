@@ -30,6 +30,8 @@ body {
 
   input[type='submit'] {
     text-transform: uppercase;
+    -webkit-appearance: none;
+    background: none;
     background-color: red;
     color: white;
     cursor: pointer;
