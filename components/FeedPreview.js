@@ -1,12 +1,52 @@
 var Router = require('react-router');
 var React = require('react');
 var RouteHandler = Router.RouteHandler;
+var when = require('when');
+var sequence = require('when/sequence');
+var _ = require('lodash/collection/forEach');
+var getChannelTitle = require('../api/getChannelTitle.js');
+var getChannelVideos = require('../api/getChannelVideos.js');
 
 FeedPreview = React.createClass({displayName: "feedPreview",
+  statics: {
+    fetchInfo: function(data) {
+      var dataObject = sequence([getChannelTitle, getChannelVideos], data['id']);
+      dataObject.then(function(response){
+        return response;
+      });
+      return dataObject;
+    }
+  },
   render: function () {
-    console.log(this.props.params['id']);
+    var title = this.props.feedPreview[0];
+    var items = [];
+
+    _(this.props.feedPreview[1].items, function(n, key){
+      var title = n.snippet.title;
+      var desc = n.snippet.description;
+      var thumb = n.snippet.thumbnails['medium']['url'];
+      var link = 'http://www.youtube.com/watch?v='+n.id.videoId;
+
+      if (key <= 4) {
+        items.push(
+          React.createElement("li", {key: key, className: 'video-item'}, 
+            React.createElement("p", null, title),
+            React.createElement("a", {className: 'video-link', href: link}, 
+              React.createElement("img", {src: thumb})
+            )
+          )
+        );
+      }
+    });
     return (
-      React.createElement("div", {className: 'preview'}, 'preview')
+      React.createElement("div", {className: 'preview'},
+        React.createElement("h1", null, "Feed Preview for "+title),
+        React.createElement("p", null, "Subscribe via this link:"),
+        React.createElement("a", {href: 'https://quiet-taiga-7437.herokuapp.com/feed/' + this.props.params['id']}, 'https://quiet-taiga-7437.herokuapp.com/feed/' + this.props.params['id']),
+        React.createElement("ul", {className: 'video-list'},
+          items
+        )
+      )
     );
   }
 });

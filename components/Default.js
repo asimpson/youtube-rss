@@ -6,7 +6,7 @@ Default = React.createClass({displayName: "Default",
   render: function () {
     return (
       React.createElement("div", null, 
-        React.createElement(RouteHandler)
+        React.createElement(RouteHandler, data=this.props.data)
       )
     );
   }
