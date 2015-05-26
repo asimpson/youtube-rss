@@ -25,9 +25,8 @@
     "handlebars": "^3.0.3",
     "lodash": "^3.8.0",
     "morgan": "^1.5.3",
-    "node-jsx": "^0.13.3",
-    "react": "^0.13.3",
-    "react-router": "^0.13.3",
+    "react": "~0.13.3",
+    "react-router": "~0.13.3",
     "reactify": "^1.1.1",
     "when": "^3.7.3",
     "youtube-api": "^0.3.2"
