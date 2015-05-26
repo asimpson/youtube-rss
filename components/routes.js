@@ -10,7 +10,7 @@ routes = function() {
 
     var router = Router.create({
       onAbort: function (options) {
-        res.redirect(302, options.to);
+        res.redirect(303, options.to);
       },
       //req.originalUrl allows me suck in action params
       location: req.originalUrl,

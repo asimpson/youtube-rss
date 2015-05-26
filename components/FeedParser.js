@@ -12,17 +12,17 @@ FeedParser = React.createClass({displayName: "FeedParser",
         callback();
       }, function(error) {
         if (error = null) {
-          console.log("ID not valid");
+          transition.redirect('/?invalid-id');
+          callback();
         } else {
-          console.log("Username not valid");
+          transition.redirect('/?invalid-username');
+          callback();
         }
       });
     }
   },
   render: function () {
-    return (
-      React.createElement("div", {className: 'preview'}, 'preview')
-    );
+    return null;
   }
 });
 
