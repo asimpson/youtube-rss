@@ -10,6 +10,7 @@ routes = function() {
 
     var router = Router.create({
       onAbort: function (options) {
+        //https://github.com/rackt/react-router/pull/828
         res.redirect(303, options.to);
       },
       //req.originalUrl allows me suck in action params
