@@ -7,7 +7,7 @@
   border-collapse: separate;
   width: 80%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 1em auto;
 }
 
 .side-by-side {
@@ -30,5 +30,6 @@
 
 .side-by-side--minor {
   white-space: nowrap;
+  margin-left: -1px;
   width: 1%;
 }

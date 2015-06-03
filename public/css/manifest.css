@@ -14,7 +14,7 @@ body {
   .form-wrapper label {
     font-family: sans-serif;
     color: #1b1b1b; }
-  .form-wrapper input[type='search'] {
+  .form-wrapper input[type='text'] {
     -webkit-appearance: none;
     border: 1px solid gray;
     border-right: none; }
@@ -46,7 +46,7 @@ ul {
   border-collapse: separate;
   width: 80%;
   max-width: 600px;
-  margin: 0 auto; }
+  margin: 1em auto; }
 
 .side-by-side {
   vertical-align: middle;
@@ -62,6 +62,7 @@ ul {
 
 .side-by-side--minor {
   white-space: nowrap;
+  margin-left: -1px;
   width: 1%; }
 
 /*# sourceMappingURL=manifest.css.map */
