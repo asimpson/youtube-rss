@@ -32,8 +32,7 @@ body {
 
 ul {
   list-style: none;
-  padding: 0;
-  margin-top: 2em; }
+  padding: 0; }
 
 .message {
   display: block;
@@ -54,6 +53,42 @@ ul {
   display: block;
   max-width: 100%;
   margin: 1em 0; }
+
+.preview {
+  margin: 0 auto;
+  max-width: 600px;
+  width: 80%; }
+  .preview h1 {
+    font-size: 1.4em; }
+  .preview h2 {
+    font-size: 1.2em;
+    margin-top: 1.5em; }
+
+.rss-link {
+  color: red;
+  font-weight: bold; }
+
+.video-link {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 1.5em auto; }
+  .video-link img {
+    display: block;
+    width: 100%; }
+
+.video-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  color: #FFF;
+  margin: 0;
+  padding: 1em;
+  z-index: 5;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.7); }
 
 .side-by-side--wrapper {
   display: table;

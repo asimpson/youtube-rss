@@ -30,8 +30,8 @@ FeedPreview = React.createClass({displayName: "feedPreview",
       if (key <= 4) {
         items.push(
           React.createElement("li", {key: key, className: 'video-item'}, 
-            React.createElement("p", null, title),
             React.createElement("a", {className: 'video-link', href: link}, 
+              React.createElement("p", {className: 'video-title'}, title),
               React.createElement("img", {src: thumb})
             )
           )
@@ -42,7 +42,8 @@ FeedPreview = React.createClass({displayName: "feedPreview",
       React.createElement("div", {className: 'preview'},
         React.createElement("h1", null, "Feed Preview for "+title),
         React.createElement("p", null, "Subscribe via this link:"),
-        React.createElement("a", {href: 'https://quiet-taiga-7437.herokuapp.com/feed/' + this.props.params['id']}, 'https://quiet-taiga-7437.herokuapp.com/feed/' + this.props.params['id']),
+        React.createElement("a", {className: 'rss-link', href: 'https://quiet-taiga-7437.herokuapp.com/feed/' + this.props.params['id']}, 'RSS Feed Link'),
+        React.createElement("h2", null, "Recent Videos:"),
         React.createElement("ul", {className: 'video-list'},
           items
         )
