@@ -10,6 +10,8 @@ body {
 
   input {
     border: none;
+    appearance: none;
+    -webkit-appearance: none;
     padding: 1em;
     font-size: 16px;
     border-radius: 0;
@@ -22,7 +24,6 @@ body {
   }
 
   input[type='text'] {
-    -webkit-appearance: none;
     border: 1px solid gray;
     border-right: none;
   }
@@ -55,13 +56,17 @@ ul {
 }
 
 .example {
-  margin: 0 auto;
+  margin: 3em auto 0 auto;
   width: 80%;
   max-width: 600px;
+
+  h1 {
+    font-size: 1.2em;
+  }
 }
 
 .example-img {
   display: block;
   max-width: 100%;
-  margin: 1em auto 0 auto;
+  margin: 1em 0;
 }

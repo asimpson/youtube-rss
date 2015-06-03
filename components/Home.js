@@ -43,16 +43,20 @@ Home = React.createClass({displayName: "Home",
             React.createElement("span", { className: 'side-by-side side-by-side--minor' },
               React.createElement("input", {type: 'submit', 
                 className: 'channel-submit',
-                value: 'Search'
+                value: 'Go!'
               })
             )
           )
         ),
         React.createElement("div", { className: 'example'}, 
-          "To get a channel name or ID visit a profile page and copy the name or ID out of the URL",
+          React.createElement("h1", {}, 
+            "Instructions:"),
+          React.createElement("p", {}, 
+            "Copy the channel name or ID out of the URL"),
           React.createElement("img", { src: '/public/img/username-or-id.jpg', 
             className: 'example-img', 
-            alt: 'Image of youtube URL with ID and username highlighted'})
+            alt: 'Image of youtube URL with ID and username highlighted'}
+          )
         )
       )
     );
