@@ -5,14 +5,15 @@ body {
 }
 
 .form-wrapper {
-  margin: 5em auto;
+  margin: 5em auto 2em auto;
   text-align: center;
 
   input {
-    border-radius: 0;
     border: none;
     padding: 1em;
-    font-size: 1.125em;
+    font-size: 16px;
+    border-radius: 0;
+    box-sizing: border-box;
   }
 
   label {
@@ -28,10 +29,10 @@ body {
 
   input[type='submit'] {
     text-transform: uppercase;
-    -webkit-appearance: none;
     background: none;
     background-color: red;
     border: 1px solid darken(red, 20%);
+    margin: 0 !important;
     border-left: none;
     color: white;
     cursor: pointer;
@@ -51,4 +52,16 @@ ul {
   background-color: red;
   margin-top: 0;
   color: white;
+}
+
+.example {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 600px;
+}
+
+.example-img {
+  display: block;
+  max-width: 100%;
+  margin: 1em auto 0 auto;
 }
