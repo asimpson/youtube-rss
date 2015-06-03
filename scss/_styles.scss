@@ -9,12 +9,10 @@ body {
   text-align: center;
 
   input {
-    display: block;
     border-radius: 0;
     border: none;
     padding: 1em;
     font-size: 1.125em;
-    margin: 1em auto;
   }
 
   label {
@@ -25,7 +23,7 @@ body {
   input[type='search'] {
     -webkit-appearance: none;
     border: 1px solid gray;
-    width: 90%;
+    border-right: none;
   }
 
   input[type='submit'] {
@@ -33,6 +31,8 @@ body {
     -webkit-appearance: none;
     background: none;
     background-color: red;
+    border: 1px solid darken(red, 20%);
+    border-left: none;
     color: white;
     cursor: pointer;
   }

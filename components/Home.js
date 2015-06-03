@@ -34,15 +34,19 @@ Home = React.createClass({displayName: "Home",
           className: 'form-wrapper'}, 
           React.createElement("label", { className: 'channel-submit' }, 
             "Enter a Youtube channel name or ID"),
-          React.createElement("input", {type: 'search', 
-            className: 'channel-input', 
-            name: 'search',
-            required: 'true',
-            placeholder: 'LastWeekTonight'}), 
-          React.createElement("input", {type: 'submit', 
-            className: 'channel-submit',
-            value: 'Search'
-          })
+          React.createElement("div", { className: 'side-by-side--wrapper' },
+            React.createElement("input", {type: 'search', 
+              className: 'channel-input side-by-side side-by-side--major', 
+              name: 'search',
+              required: 'true',
+              placeholder: 'LastWeekTonight'}), 
+            React.createElement("span", { className: 'side-by-side side-by-side--minor' },
+              React.createElement("input", {type: 'submit', 
+                className: 'channel-submit',
+                value: 'Search'
+              })
+            )
+          )
         )
       )
     );

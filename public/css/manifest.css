@@ -7,24 +7,24 @@ body {
   margin: 5em auto;
   text-align: center; }
   .form-wrapper input {
-    display: block;
     border-radius: 0;
     border: none;
     padding: 1em;
-    font-size: 1.125em;
-    margin: 1em auto; }
+    font-size: 1.125em; }
   .form-wrapper label {
     font-family: sans-serif;
     color: #1b1b1b; }
   .form-wrapper input[type='search'] {
     -webkit-appearance: none;
     border: 1px solid gray;
-    width: 90%; }
+    border-right: none; }
   .form-wrapper input[type='submit'] {
     text-transform: uppercase;
     -webkit-appearance: none;
     background: none;
     background-color: red;
+    border: 1px solid #990000;
+    border-left: none;
     color: white;
     cursor: pointer; }
 
@@ -40,5 +40,28 @@ ul {
   background-color: red;
   margin-top: 0;
   color: white; }
+
+.side-by-side--wrapper {
+  display: table;
+  border-collapse: separate;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto; }
+
+.side-by-side {
+  vertical-align: middle;
+  display: table-cell; }
+  .side-by-side_align-bottom .side-by-side {
+    vertical-align: bottom; }
+  .side-by-side_align-top .side-by-side {
+    vertical-align: top; }
+
+.side-by-side--major {
+  float: left;
+  width: 100%; }
+
+.side-by-side--minor {
+  white-space: nowrap;
+  width: 1%; }
 
 /*# sourceMappingURL=manifest.css.map */

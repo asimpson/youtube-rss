@@ -1,0 +1,34 @@
+// These side-by-side classes are adopted 
+// from Bootstrap's Input Groups - http://getbootstrap.com/components/#input-groups
+// see `search.hbs` for an example of how to use these classes
+
+.side-by-side--wrapper {
+  display: table;
+  border-collapse: separate;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.side-by-side {
+  vertical-align: middle;
+  display: table-cell;
+
+  .side-by-side_align-bottom & {
+    vertical-align: bottom;
+  }
+
+  .side-by-side_align-top & {
+    vertical-align: top;
+  }
+}
+
+.side-by-side--major {
+  float: left;
+  width: 100%;
+}
+
+.side-by-side--minor {
+  white-space: nowrap;
+  width: 1%;
+}
