@@ -75,6 +75,7 @@ ul {
   margin: 1.5em auto; }
   .video-link img {
     display: block;
+    min-height: 2em;
     width: 100%; }
 
 .video-title {
