@@ -42,7 +42,7 @@ FeedPreview = React.createClass({displayName: "feedPreview",
       React.createElement("div", {className: 'preview'},
         React.createElement("h1", null, "Feed Preview for "+title),
         React.createElement("p", null, "Subscribe via this link:"),
-        React.createElement("a", {className: 'rss-link', href: 'https://quiet-taiga-7437.herokuapp.com/feed/' + this.props.params['id']}, 'RSS Feed Link'),
+        React.createElement("a", {className: 'rss-link', href: 'https://youtuberss.herokuapp.com/feed/' + this.props.params['id']}, 'RSS Feed Link'),
         React.createElement("h2", null, "Recent Videos:"),
         React.createElement("ul", {className: 'video-list'},
           items
