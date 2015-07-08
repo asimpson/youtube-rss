@@ -23,7 +23,7 @@ app.get('/favicon*', function(req, res) {
 
 app.get('/feed/:channelId', function(req, res) {
   console.log(req.url);
-  console.log(req.headers);
+  console.log(req.headers['user-agent']);
   var rssObject = [];
   var rssTitle = '';
   var todayDate = new Date().toUTCString();
