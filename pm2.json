@@ -1,0 +1,9 @@
+{
+  "name": "ytrss",
+  "cwd": "/home/adam/apps/ytrss",
+  "script": "bin/www",
+  "merge_logs"  : true,
+  "env": {
+    "NODE_ENV": "production"
+  }
+}

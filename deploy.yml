@@ -1,0 +1,27 @@
+---
+- hosts: ytrss
+
+  vars:
+    app_path: apps/ytrss
+    repo_url: git@bitbucket.org:a_simpson/youtube-rss.git
+
+  tasks:
+    - name: create app dir if it doesn't exist
+      file: path={{ app_path }}
+            state=directory
+
+    - name: update from git
+      git: repo={{ repo_url }} 
+           dest={{ app_path }} 
+           force=true
+           depth=1
+
+    - name: install deps
+      shell: npm install
+      args:
+        chdir: "{{ app_path }}"
+
+    - name: start with pm2
+      shell: pm2 startOrRestart pm2.json
+      args:
+        chdir: "{{ app_path }}"
