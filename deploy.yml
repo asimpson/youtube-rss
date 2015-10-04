@@ -1,5 +1,5 @@
 ---
-- hosts: ytrss
+- hosts: chunk
 
   vars:
     app_path: apps/ytrss
