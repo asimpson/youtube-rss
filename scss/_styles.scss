@@ -127,6 +127,7 @@ ul {
 }
 
 footer {
+  box-sizing: border-box;
   text-align: center;
   height: 30px;
   position: absolute;
@@ -136,8 +137,13 @@ footer {
   width: 100%;
   font-size: 11px;
   text-transform: uppercase;
-  padding: 2em 0;
+  margin: 2em 0;
+  padding: 0 1em;
   color: #C3C3C3;
+
+  p {
+    line-height: 1.5;
+  }
 
   a {
     color: #C3C3C3;
