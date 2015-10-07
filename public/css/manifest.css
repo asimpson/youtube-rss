@@ -91,6 +91,15 @@ ul {
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.7); }
 
+footer {
+  text-align: center;
+  margin-top: 2em; }
+  footer a {
+    color: red; }
+
+.red {
+  color: red; }
+
 .side-by-side--wrapper {
   display: table;
   border-collapse: separate;

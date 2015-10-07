@@ -116,3 +116,16 @@ ul {
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.7);
 }
+
+footer {
+  text-align: center;
+  margin-top: 2em;
+
+  a {
+    color: red;
+  }
+}
+
+.red {
+  color: red;
+}
