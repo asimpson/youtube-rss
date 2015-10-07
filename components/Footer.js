@@ -6,7 +6,7 @@ Footer = React.createClass({displayName: "Footer",
     return (
       React.createElement("footer", null, 
         React.createElement("p", { dangerouslySetInnerHTML: {
-            __html: "Made with <span class='red'>&#x2764;</span> in Ohio. Hosted on <a href='https://chunkhost.com/r/46012'>Chunkhost</a>. Created with <a href='http://facebook.github.io/react/'>React</a>"
+          __html: "Made with <span class='red'>&#x2764;</span> by <a href='http://twitter.com/a_simpson'>@a_simpson</a>. Hosted on <a href='https://chunkhost.com/r/46012'>Chunkhost</a>. Created with <a href='http://facebook.github.io/react/'>React</a>"
           }
         })
       )
