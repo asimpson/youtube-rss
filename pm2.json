@@ -3,6 +3,7 @@
   "cwd": "/home/adam/apps/ytrss",
   "script": "bin/www",
   "merge_logs"  : true,
+  "log-date-format" : "YYYY-MM-DD HH:mm Z",
   "env": {
     "NODE_ENV": "production"
   }
