@@ -16,9 +16,10 @@ getChannelTitle = function (channelId) {
         // TypeError: Cannot read property 'snippet' of undefined
         //     at /home/adam/apps/ytrss/api/getChannelTitle.js:16:30
         if (!data.items[0]) {
-          console.log('no snippet', data);
+          resolve('Title not available');
+        } else {
+          resolve(data.items[0].snippet.title);
         }
-        resolve(data.items[0].snippet.title);
       }
     });
   });
