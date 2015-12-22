@@ -22,7 +22,9 @@
         chdir: "{{ app_path }}"
 
     - name: set up YT SSL renewal
-      cron: name="YT SSL" special_time=monthly job="/home/adam/letsencrypt/letsencrypt-auto certonly --agree-tos --webroot --keep-until-expiring -w /home/adam/apps/ytrss -d ytrss.co"
+      become: true
+      become_user: root
+      cron: name="YT SSL" user="root" special_time=monthly job="/home/adam/letsencrypt/letsencrypt-auto certonly --agree-tos --webroot --keep-until-expiring -w /home/adam/apps/ytrss -d ytrss.co"
 
     - name: start with pm2
       shell: pm2 startOrRestart pm2.json
