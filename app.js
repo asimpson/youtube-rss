@@ -12,7 +12,7 @@ var getChannelVideos = require('./api/getChannelVideos.js');
 
 Youtube.authenticate({
   type: "key", 
-  key: "***REMOVED***"
+  key: "**REMOVED**"
 });
 
 app.use('/public', express.static(__dirname + '/public'));
