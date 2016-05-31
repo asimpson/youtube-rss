@@ -29,7 +29,8 @@ routes = function() {
       }, {});
       resolveHash(promises).then(function (data) {
         var markup = React.renderToString(React.createElement(Handler, {data: data}));
-        cons.handlebars('templates/app.hbs', {html: markup}, function(err, html){
+        var rssLink = req.originalUrl.match('preview') ? req.originalUrl.split('/')[2] : false;
+        cons.handlebars('templates/app.hbs', {html: markup, rssLink: rssLink}, function(err, html){
           if (err) throw err;
           res.send(html);
         });

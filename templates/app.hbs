@@ -6,7 +6,9 @@
     <meta name="description" content="Generate a RSS feed for any Youtube channel">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href="/public/css/manifest.css" rel="stylesheet">
-  </head>
+    {{#if rssLink}}
+      <link href='https://ytrss.co/feed/{{rssLink}}' rel='alternate' type='application/rss+xml'> </head>
+    {{/if}}
   <body>
     <div id="app">{{{html}}}</div>
   </body>
